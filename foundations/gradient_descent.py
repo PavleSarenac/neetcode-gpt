@@ -1,6 +1,7 @@
 class Solution:
     def get_minimizer(self, iterations: int, learning_rate: float, init: int) -> float:
-        final_x = init
-        for i in range(iterations):
-            final_x = final_x - learning_rate * 2 * final_x
-        return round(final_x, 5)
+        current_x = init
+        for _ in range(iterations):
+            current_gradient = 2 * current_x
+            current_x -= learning_rate * current_gradient
+        return round(current_x, 5)
